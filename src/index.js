@@ -20,13 +20,13 @@ app.get("/users", (req, res, next) => {
     res.status(200).json({ msg: "ok" });
 });
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     const errorObj = {
-        message: error?.message || "something went wrong",
-        status: error?.status || 500,
+        message: err?.message || "something went wrong",
+        status: err?.status || 500,
     };
 
-    res.status(errorObj.status).json(errorObj);
+    res.status(err.status).json(errorObj);
 });
 
 app.listen(4000, () => {
