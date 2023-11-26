@@ -7,7 +7,6 @@ const deletePhotos = (id) => {
     if (index === -1) {
         const error = new Error("photo not found");
         error.status = 404;
-
         throw error;
     }
 
